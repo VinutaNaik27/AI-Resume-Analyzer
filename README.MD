@@ -222,7 +222,7 @@ Store Result in SQLite
 
 ### 🏠 Home Page
 
-><img src="C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\home.png">
+<img src="{{ url_for('static', filename='screenshots/home.png') }}">
 
 ---
 
