@@ -1,45 +1,79 @@
-# AI Resume Analyzer
+# 🤖 AI Resume Analyzer
 
-An AI-powered Resume Analyzer built with Flask and Google's Gemini API. The application allows users to upload a resume (PDF), compare it with a job description, and receive an AI-generated analysis including a match score, missing skills, improvement suggestions, and a concise summary.
+<p align="center">
 
----
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask)
+![Gemini AI](https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=for-the-badge&logo=google)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite)
+![License](https://img.shields.io/badge/License-Educational-success?style=for-the-badge)
 
-## Features
-
-- Upload PDF resumes
-- Extract resume text automatically
-- Compare resume against a job description using Gemini AI
-- Generate:
-  - Match Score
-  - Missing Skills
-  - Improvement Suggestions
-  - Resume Summary
-- Store analysis history in SQLite
-- View previous analyses
-- Delete unwanted history records
-- Prevent duplicate analyses using resume hashing
+</p>
 
 ---
 
-## Tech Stack
+## 📖 About the Project
 
-- Python
-- Flask
-- Google Gemini API
-- PyMuPDF (fitz)
-- Flask-SQLAlchemy
-- SQLite
-- HTML
-- Bootstrap 5
-- JavaScript
-- python-dotenv
+**AI Resume Analyzer** is an intelligent web application built using **Flask** and **Google Gemini AI**.
+
+The application allows users to upload a **PDF resume**, compare it with a **Job Description**, and receive an AI-powered analysis including:
+
+- 🎯 Match Score
+- 🛠 Missing Skills
+- 💡 Improvement Suggestions
+- 📝 Resume Summary
+
+It also stores previous analyses in a **SQLite database** and provides a dedicated **History Page**.
 
 ---
 
-## Project Structure
+# ✨ Features
 
-```
-PythonProject3/
+✅ Upload PDF Resume
+
+✅ Extract Resume Text Automatically
+
+✅ AI Resume Analysis using Google Gemini
+
+✅ ATS-style Resume Evaluation
+
+✅ Match Score Generation
+
+✅ Missing Skills Identification
+
+✅ Improvement Suggestions
+
+✅ Resume Summary
+
+✅ Analysis History
+
+✅ Delete Previous Analyses
+
+✅ Duplicate Resume Detection using Hashing
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Usage |
+|------------|-------|
+| 🐍 Python | Backend Programming |
+| 🌐 Flask | Web Framework |
+| 🤖 Google Gemini AI | Resume Analysis |
+| 📄 PyMuPDF | PDF Text Extraction |
+| 🗄 SQLite | Database |
+| 🔥 SQLAlchemy | ORM |
+| 🎨 Bootstrap 5 | UI Design |
+| 💻 HTML/CSS | Frontend |
+| ⚡ JavaScript | Dynamic Content |
+| 🔑 python-dotenv | Environment Variables |
+
+---
+
+# 📂 Project Structure
+
+```text
+AI-Resume-Analyzer/
 │
 ├── uploads/
 │   ├── main.py
@@ -52,41 +86,49 @@ PythonProject3/
 │
 ├── .env
 ├── .gitignore
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Installation
+# 🚀 Installation
 
-### Clone the repository
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+git clone https://github.com/VinutaNaik27/AI-Resume-Analyzer.git
+
+cd AI-Resume-Analyzer
 ```
 
-### Create a virtual environment
+---
+
+### 2️⃣ Create Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-### Activate the virtual environment
+---
 
-Windows
+### 3️⃣ Activate Virtual Environment
+
+### Windows
 
 ```bash
 .venv\Scripts\activate
 ```
 
-Linux/macOS
+### Linux / macOS
 
 ```bash
 source .venv/bin/activate
 ```
 
-### Install dependencies
+---
+
+### 4️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -94,9 +136,9 @@ pip install -r requirements.txt
 
 ---
 
-## Configure Environment Variables
+# 🔑 Configure Environment Variables
 
-Create a `.env` file in the project root.
+Create a file named **`.env`**
 
 ```env
 GEMINI_API_KEY=YOUR_API_KEY
@@ -104,13 +146,13 @@ GEMINI_API_KEY=YOUR_API_KEY
 
 ---
 
-## Run the Application
+# ▶️ Run the Application
 
 ```bash
 python uploads/main.py
 ```
 
-Open your browser and visit:
+Open your browser:
 
 ```
 http://127.0.0.1:5000
@@ -118,56 +160,102 @@ http://127.0.0.1:5000
 
 ---
 
-## How It Works
+# ⚙️ How It Works
 
-1. Upload a PDF resume.
-2. Enter the job description.
-3. The application extracts text from the PDF.
-4. Gemini AI compares the resume with the job description.
-5. The system returns:
-   - Match Score
-   - Missing Skills
-   - Suggestions
-   - Summary
-6. Results are stored in a SQLite database.
-7. Users can view or delete previous analyses from the History page.
-
----
-
-## Technologies Used
-
-| Technology | Purpose |
-|------------|---------|
-| Flask | Backend Framework |
-| Gemini AI | Resume Analysis |
-| PyMuPDF | PDF Text Extraction |
-| SQLAlchemy | Database ORM |
-| SQLite | Database |
-| Bootstrap 5 | User Interface |
-| HTML/CSS | Frontend |
-| JavaScript | Dynamic UI |
+```text
+Upload Resume
+        │
+        ▼
+Extract Text from PDF
+        │
+        ▼
+Paste Job Description
+        │
+        ▼
+Google Gemini AI
+        │
+        ▼
+Resume Analysis
+        │
+        ▼
+Match Score
+Missing Skills
+Suggestions
+Summary
+        │
+        ▼
+Store Result in SQLite
+```
 
 ---
 
-## Future Improvements
+# 🎯 Output Includes
 
-- Support DOCX and TXT resume uploads
-- Export analysis reports as PDF
-- User authentication
-- Resume keyword highlighting
-- ATS score visualization
-- Download analysis reports
+📊 Match Score
 
----
+❌ Missing Skills
 
-## Author
+💡 Improvement Suggestions
 
-**Vinuta Ishwar Naik**
+📝 Resume Summary
 
-AI & Machine Learning Enthusiast
+📚 Analysis History
+
+🗑 Delete Previous Records
 
 ---
 
-## License
+# 📌 Future Improvements
 
-This project is created for educational and learning purposes.
+- 📄 DOCX Resume Support
+- 🖼 Image Resume OCR
+- 📥 Export Analysis as PDF
+- 👤 User Authentication
+- 📈 ATS Score Visualization
+- 📊 Resume Analytics Dashboard
+- 🌙 Dark Mode
+- ☁ Cloud Deployment
+
+---
+
+# 📷 Screenshots
+
+### 🏠 Home Page
+
+> Add screenshot here
+
+---
+
+### 📊 Analysis Result
+
+> Add screenshot here
+
+---
+
+### 📜 History Page
+
+> Add screenshot here
+
+---
+
+# 👨‍💻 Author
+
+## **Vinuta Ishwar Naik**
+
+🎓 AI & Machine Learning Enthusiast
+
+💻 Python Developer
+
+🚀 Passionate about AI, Machine Learning, and Generative AI
+
+---
+
+# ⭐ If you like this project...
+
+Give this repository a ⭐ on GitHub!
+
+---
+
+# 📄 License
+
+This project is developed for **educational and learning purposes**.
