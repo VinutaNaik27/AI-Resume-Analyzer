@@ -216,27 +216,7 @@ Store Result in SQLite
 - 🌙 Dark Mode
 - ☁ Cloud Deployment
 
----
 
-# 📷 Screenshots
-
-### 🏠 Home Page
-
-<img src="{{ url_for('static', filename='screenshots/home.png') }}">
-
----
-
-### 📊 Analysis Result
-
-> <img src="{{ result}}" alt="result Page" width="700">
-
----
-
-### 📜 History Page
-
-><img src="{{ history }}" alt="history Page" width="700">
-
----
 
 # 👨‍💻 Author
 
