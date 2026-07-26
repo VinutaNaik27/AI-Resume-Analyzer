@@ -222,19 +222,19 @@ Store Result in SQLite
 
 ### 🏠 Home Page
 
-> Add screenshot here
+> C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\home.png
 
 ---
 
 ### 📊 Analysis Result
 
-> Add screenshot here
+> C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\result.png
 
 ---
 
 ### 📜 History Page
 
-> Add screenshot here
+> C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\history.png
 
 ---
 
