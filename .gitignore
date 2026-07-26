@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+.venv1/
+__pycache__/
+*.py[cod]
+
+# Environment variables (contains API keys)
+.env
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+
+# SQLite databases
+*.db
+*.sqlite3
+sample.pdf
