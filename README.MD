@@ -228,13 +228,13 @@ Store Result in SQLite
 
 ### 📊 Analysis Result
 
-> <img src="{{ result}}" alt="Home Page" width="700">
+> <img src="{{ result}}" alt="result Page" width="700">
 
 ---
 
 ### 📜 History Page
 
-><img src="{{ history }}" alt="Home Page" width="700">
+><img src="{{ history }}" alt="history Page" width="700">
 
 ---
 
