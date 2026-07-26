@@ -222,19 +222,19 @@ Store Result in SQLite
 
 ### 🏠 Home Page
 
-> C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\home.png
+><img src="{{ home }}" alt="Home Page" width="700">
 
 ---
 
 ### 📊 Analysis Result
 
-> C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\result.png
+> <img src="{{ result}}" alt="Home Page" width="700">
 
 ---
 
 ### 📜 History Page
 
-> C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\history.png
+><img src="{{ history }}" alt="Home Page" width="700">
 
 ---
 
