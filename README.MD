@@ -222,7 +222,7 @@ Store Result in SQLite
 
 ### 🏠 Home Page
 
-><img src="{{ home }}" alt="Home Page" width="700">
+><img src="C:\Users\Vinutha\PycharmProjects\PythonProject3\screenshots\home.png">
 
 ---
 
