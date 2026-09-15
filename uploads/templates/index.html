@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Analyzer AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .navbar {
+      background-color: navy;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: white;
+    }
+
+    .container {
+      margin-top: 60px;
+    }
+
+    .card {
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding: 20px 0;
+      text-align: center;
+      background-color: #f1f1f1;
+      color: #777;
+    }
+
+    .spinner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    #markdown-result {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    #markdown-result h1, h2, h3, h4 {
+      margin-top: 1rem;
+    }
+
+    #markdown-result ul {
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container d-flex justify-content-between">
+    <a class="navbar-brand" href="/">Resume Analyzer AI</a>
+    <a href="/history" class="btn btn-light btn-sm">History</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="card p-4">
+        <h3 class="mb-4 text-center">Analyze Your Resume with AI</h3>
+
+        <form id="analyzeForm" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="form-label">Upload Resume (PDF only)</label>
+            <input class="form-control" type="file" name="resume" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Paste Job Description</label>
+            <textarea class="form-control" name="job_description" rows="7" required></textarea>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary" style="background-color:navy">
+              Analyze Resume
+            </button>
+          </div>
+          <div class="d-grid mt-2">
+            <a href="/history" class="btn btn-outline-secondary">
+              View Past Analyses
+            </a>
+          </div>
+        </form>
+        <div class="spinner" id="spinner">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2">Analyzing... please wait</p>
+        </div>
+        {% if message %}
+        <p class="text-success text-center mt-3">{{ message }}</p>
+        {% endif %}
+        {% if result is none %}
+        <p class="text-center mt-3 text-muted">
+          Upload a resume and job description to see results.
+        </p>
+        {% endif %}
+      </div>
+      {% if result %}
+      <div class="card mt-4 p-4">
+        <h4>Analysis Result</h4>
+        <div id="markdown-result" class="mt-3"></div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  &copy; {{ year or "2025" }} Resume Analyzer AI
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const form = document.getElementById("analyzeForm");
+  const spinner = document.getElementById("spinner");
+
+  form.addEventListener("submit", function () {
+    spinner.style.display = "block";
+    form.querySelector("button").disabled = true;
+  });
+</script>
+
+{% if result %}
+<script>
+  const markdown = {{ result | tojson | safe }};
+  document.getElementById("markdown-result").innerHTML = marked.parse(markdown);
+</script>
+{% endif %}
+
+</body>
+</html>
+
