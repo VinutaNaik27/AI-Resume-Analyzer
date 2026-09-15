@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+<h1>RAG-Based AI Resume Analyzer</h1>
+
+<div class="cards">
+<div class="card"><h2>Applicant</h2><p>Analyze your resume and view saved history.</p>
+<a class="button" href="{{ url_for('login', role='applicant') }}">Login</a>
+<a class="secondary" href="{{ url_for('register', role='applicant') }}">Register</a></div>
+<div class="card"><h2>Recruiter</h2><p>Analyze multiple candidates and keep recruitment history.</p>
+<a class="button" href="{{ url_for('login', role='recruiter') }}">Login</a>
+<a class="secondary" href="{{ url_for('register', role='recruiter') }}">Register</a></div>
+</div></div>
+{% endblock %}

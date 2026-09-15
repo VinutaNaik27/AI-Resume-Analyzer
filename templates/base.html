@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Resume Analyzer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <a class="brand" href="{{ url_for('index') }}">AI Resume Analyzer</a>
+
+    {% if session.get('user_id') %}
+    <div>
+        <span class="nav-user">
+            {{ session.get('username') }}
+            <small>({{ session.get('role', '').title() }})</small>
+        </span>
+
+        {% if session.get('role') == 'applicant' %}
+            <a href="{{ url_for('applicant_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('applicant_history') }}">My Analysis History</a>
+        {% elif session.get('role') == 'recruiter' %}
+            <a href="{{ url_for('recruiter_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('job_postings') }}">Job Postings</a>
+            <a href="{{ url_for('create_job_posting') }}">Create Job</a>
+            <a href="{{ url_for('recruiter_history') }}">Recruitment History</a>
+        {% endif %}
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    {% endif %}
+</nav>
+
+{% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+Flask
+Flask-SQLAlchemy
+Werkzeug
+python-dotenv
+PyMuPDF
+python-docx
+chromadb
+google-genai
+langchain
+langchain-core
+langchain-text-splitters
+pydantic
+langchain-community
+
+

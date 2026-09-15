@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="results">
+    <h1>{{ recruitment_session.job_title }}</h1>
+
+    <div class="result-card">
+        <p>Cutoff Score: <b>{{ recruitment_session.cutoff_score }}%</b></p>
+        <details>
+            <summary>View Job Description</summary>
+            <p class="preline">{{ recruitment_session.job_description }}</p>
+        </details>
+    </div>
+
+    {% for c in candidates %}
+    <div class="result-card">
+        <h2>
+            {{ c.candidate_name }}
+            <span class="{{ c.status.lower() }}">{{ c.status }}</span>
+        </h2>
+
+        <div class="score">
+            Match Score: <strong>{{ c.score }}%</strong>
+        </div>
+
+        <h3>Summary</h3>
+        <p>{{ c.summary }}</p>
+
+        <h3>Matching Skills</h3>
+        <div class="tags">
+            {% for x in c.matching_skills %}
+            <span class="good">{{ x }}</span>
+            {% endfor %}
+        </div>
+
+        <h3>Missing Skills</h3>
+        <div class="tags">
+            {% for x in c.missing_skills %}
+            <span class="bad">{{ x }}</span>
+            {% endfor %}
+        </div>
+
+        <h3>Strengths</h3>
+        <ul>
+            {% for x in c.strengths %}
+            <li>{{ x }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Weaknesses</h3>
+        <ul>
+            {% for x in c.weaknesses %}
+            <li>{{ x }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

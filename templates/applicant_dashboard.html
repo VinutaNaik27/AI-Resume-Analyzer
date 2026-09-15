@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<div class="dashboard"><h1>Welcome, {{ session.get("username") }}</h1><p class="muted">Logged in as <b>Applicant</b></p>
+<a class="secondary" href="{{ url_for('applicant_history') }}">View My Analysis History</a>
+<form method="POST" enctype="multipart/form-data">
+<label>Job Description</label><textarea name="job_description" rows="12" required></textarea>
+<label>Upload Resume</label><input type="file" name="resume" accept=".pdf,.docx" required>
+<button>Analyze Resume</button></form></div>{% endblock %}

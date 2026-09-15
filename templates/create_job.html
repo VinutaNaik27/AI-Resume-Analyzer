@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form wide-form">
+    <h1>Create Job Posting</h1>
+
+    <form method="POST">
+        <label>Job Title</label>
+        <input type="text" name="title" placeholder="Python Full Stack Developer" required>
+
+        <label>Company Name</label>
+        <input type="text" name="company" placeholder="ABC Technologies" required>
+
+        <label>Location</label>
+        <input type="text" name="location" placeholder="Bengaluru / Remote">
+
+        <label>Employment Type</label>
+        <select name="employment_type">
+            <option value="Full-time">Full-time</option>
+            <option value="Internship">Internship</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+        </select>
+
+        <label>Job Description and Requirements</label>
+        <textarea name="job_description" rows="16"
+            placeholder="Enter responsibilities, required skills, experience, qualifications and technologies..."
+            required></textarea>
+
+        <button type="submit">Create Job Posting</button>
+    </form>
+</div>
+{% endblock %}

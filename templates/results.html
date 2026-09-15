@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="results">
+
+{% if applicant %}
+
+    <h1>Resume Analysis Result</h1>
+
+    {% if cached %}
+    <div class="cache">{{ cache_message }}</div>
+    {% endif %}
+
+    <div class="result-card">
+        <div class="score">
+            Match Score: <strong>{{ analysis.overall_score }}%</strong>
+        </div>
+
+        <h3>Summary</h3>
+        <p>{{ analysis.summary }}</p>
+
+        <h3>Matching Skills</h3>
+        <div class="tags">
+            {% for x in analysis.matching_skills %}
+            <span class="good">{{ x }}</span>
+            {% else %}
+            <span class="muted">No matching skills extracted.</span>
+            {% endfor %}
+        </div>
+
+        <h3>Missing Skills</h3>
+        <div class="tags">
+            {% for x in analysis.missing_skills %}
+            <span class="bad">{{ x }}</span>
+            {% else %}
+            <span class="muted">No major missing skills identified.</span>
+            {% endfor %}
+        </div>
+
+        <h3>Strengths</h3>
+        <ul>
+            {% for x in analysis.strengths %}
+            <li>{{ x }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Weaknesses</h3>
+        <ul>
+            {% for x in analysis.weaknesses %}
+            <li>{{ x }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% else %}
+
+    <h1>Candidate Results</h1>
+    {% if job %}
+    <p><b>Job:</b> {{ job.title }} · {{ job.company }}</p>
+    {% endif %}
+    <p>Cutoff Score: <b>{{ cutoff_score }}%</b></p>
+
+    {% for r in results %}
+    <div class="result-card">
+
+        <h2>
+            {{ r.get("candidate_name", "Candidate") }}
+
+            {% if not r.get("error") %}
+                <span class="{{ r.get('status', 'REJECTED').lower() }}">
+                    {{ r.get("status", "REJECTED") }}
+                </span>
+            {% endif %}
+        </h2>
+
+        {% if r.get("error") %}
+            <p class="error">
+                Analysis Error: {{ r.get("error") }}
+            </p>
+        {% else %}
+
+            {% if r.get("cached") %}
+            <div class="cache">
+                This resume is already analyzed with this job description.
+                Saved result fetched from database.
+            </div>
+            {% endif %}
+
+            <div class="score">
+                Match Score: <strong>{{ r.get("score", 0) }}%</strong>
+            </div>
+
+            <h3>Summary</h3>
+            <p>{{ r.get("summary", "") }}</p>
+
+            <h3>Matching Skills</h3>
+            <div class="tags">
+                {% for x in r.get("matching_skills", []) %}
+                <span class="good">{{ x }}</span>
+                {% else %}
+                <span class="muted">No matching skills extracted.</span>
+                {% endfor %}
+            </div>
+
+            <h3>Missing Skills</h3>
+            <div class="tags">
+                {% for x in r.get("missing_skills", []) %}
+                <span class="bad">{{ x }}</span>
+                {% else %}
+                <span class="muted">No major missing skills identified.</span>
+                {% endfor %}
+            </div>
+
+            <h3>Strengths</h3>
+            <ul>
+                {% for x in r.get("strengths", []) %}
+                <li>{{ x }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Weaknesses</h3>
+            <ul>
+                {% for x in r.get("weaknesses", []) %}
+                <li>{{ x }}</li>
+                {% endfor %}
+            </ul>
+
+        {% endif %}
+    </div>
+    {% endfor %}
+
+{% endif %}
+</div>
+{% endblock %}

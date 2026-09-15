@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<div class="form"><h2>Register as {{ role.title() }}</h2>
+<form method="POST"><label>Username</label><input name="username" required>
+<label>Email</label><input type="email" name="email" required>
+<label>Password</label><input type="password" name="password" required>
+<button>Register</button></form></div>
+{% endblock %}

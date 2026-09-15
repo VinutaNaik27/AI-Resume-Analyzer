@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h1>Analyze Candidates</h1>
+
+    <div class="job-summary">
+        <h2>{{ job.title }}</h2>
+        <p><b>{{ job.company }}</b>
+        {% if job.location %} · {{ job.location }}{% endif %}
+        {% if job.employment_type %} · {{ job.employment_type }}{% endif %}
+        </p>
+
+        <details>
+            <summary>View Job Description</summary>
+            <p class="preline">{{ job.job_description }}</p>
+        </details>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Upload Multiple Resumes</label>
+        <input type="file" name="resumes" multiple accept=".pdf,.docx" required>
+
+        <label>Cutoff Match Score</label>
+        <input type="number" name="cutoff_score" min="0" max="100" value="60" required>
+
+        <button type="submit">Analyze Candidates</button>
+    </form>
+</div>
+{% endblock %}

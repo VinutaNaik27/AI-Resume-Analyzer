@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="results">
+    <div class="page-header">
+        <div>
+            <h1>My Job Postings</h1>
+            <p>Create a job first, then upload multiple resumes for that specific job.</p>
+        </div>
+        <a class="button" href="{{ url_for('create_job_posting') }}">+ Create Job Posting</a>
+    </div>
+
+    {% for job in jobs %}
+    <div class="result-card">
+        <div class="job-top">
+            <div>
+                <h2>{{ job.title }}</h2>
+                <p><b>{{ job.company }}</b>
+                {% if job.location %} · {{ job.location }}{% endif %}
+                {% if job.employment_type %} · {{ job.employment_type }}{% endif %}
+                </p>
+            </div>
+            <span class="{{ job.status.lower() }}">{{ job.status }}</span>
+        </div>
+
+        <p>{{ job.job_description[:350] }}{% if job.job_description|length > 350 %}...{% endif %}</p>
+
+        <p class="muted">
+            Created: {{ job.created_at.strftime('%d %b %Y, %I:%M %p') }}
+        </p>
+
+        <a class="button" href="{{ url_for('analyze_job_candidates', job_id=job.id) }}">
+            Analyze Candidates
+        </a>
+
+        {% if job.status == 'OPEN' %}
+        <form class="inline-form" method="POST" action="{{ url_for('toggle_job_status', job_id=job.id) }}">
+            <button class="danger-button" type="submit">Close Job</button>
+        </form>
+        {% else %}
+        <form class="inline-form" method="POST" action="{{ url_for('toggle_job_status', job_id=job.id) }}">
+            <button class="secondary-button" type="submit">Reopen Job</button>
+        </form>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="result-card">No job postings found.</div>
+    {% endfor %}
+</div>
+{% endblock %}

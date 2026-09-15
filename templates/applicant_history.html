@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block content %}
+<div class="results"><h1>My Analysis History</h1>
+{% for item in history %}
+<div class="result-card"><h2>{{ item.resume_name }}</h2>
+<p>Match Score: <b>{{ item.match_score }}%</b></p>
+<p>{{ item.created_at.strftime('%d %b %Y, %I:%M %p') }}</p>
+<p>{{ item.summary[:200] }}...</p>
+<a class="button" href="{{ url_for('applicant_history_details', history_id=item.id) }}">View Saved Result</a>
+</div>
+{% else %}<div class="result-card">No analysis history found.</div>{% endfor %}
+</div>{% endblock %}

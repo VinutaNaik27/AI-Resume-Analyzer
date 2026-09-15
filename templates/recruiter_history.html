@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="results">
+    <h1>Recruitment History</h1>
+
+    {% for item in history %}
+    <div class="result-card">
+        <h2>{{ item.job_title }}</h2>
+        <p>
+            Cutoff: <b>{{ item.cutoff_score }}%</b>
+            · Candidates: <b>{{ item.candidates|length }}</b>
+        </p>
+        <p>{{ item.created_at.strftime('%d %b %Y, %I:%M %p') }}</p>
+
+        <a class="button" href="{{ url_for('recruitment_details', session_id=item.id) }}">
+            View Results
+        </a>
+    </div>
+    {% else %}
+    <div class="result-card">No recruitment history found.</div>
+    {% endfor %}
+</div>
+{% endblock %}

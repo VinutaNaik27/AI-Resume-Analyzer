@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Analysis History</h1>
+<div class="grid">
+{% for record in records %}
+    <div class="card">
+        <div class="row-between">
+            <h2>{{ record.job_title }}</h2>
+            <div class="score">{{ record.match_score }}%</div>
+            <form action="{{ url_for('delete_result', result_id=item.id) }}"
+      method="POST"
+      onsubmit="return confirm('Are you sure you want to delete this record?');">
+
+    <button type="submit" class="btn btn-danger btn-sm">
+        Delete
+    </button>
+
+</form>
+        </div>
+        <p><b>Analyzed:</b> {{ record.created_at.strftime('%d %b %Y, %I:%M %p') if record.created_at else '-' }} IST</p>
+        <p>{{ record.summary }}</p>
+        <p><b>Missing Skills:</b> {{ (record.missing_skills or [])|join(', ') }}</p>
+    </div>
+{% else %}
+    <div class="card"><p>No analysis history available.</p></div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h1>Welcome, {{ session.get("username") }}</h1>
+    <p class="muted">Logged in as <b>Recruiter</b></p>
+    <p>Manage job postings and analyze multiple candidate resumes.</p>
+
+    <div class="action-row">
+        <a class="button" href="{{ url_for('create_job_posting') }}">+ Create Job Posting</a>
+        <a class="secondary" href="{{ url_for('job_postings') }}">Manage Job Postings</a>
+        <a class="secondary" href="{{ url_for('recruiter_history') }}">Recruitment History</a>
+    </div>
+
+    <h2>Your Open Job Postings</h2>
+
+    {% if jobs %}
+        <div class="job-grid">
+        {% for job in jobs %}
+            <div class="job-card">
+                <div class="job-top">
+                    <h3>{{ job.title }}</h3>
+                    <span class="open">{{ job.status }}</span>
+                </div>
+                <p><b>{{ job.company }}</b></p>
+                {% if job.location %}<p>{{ job.location }}</p>{% endif %}
+                {% if job.employment_type %}<p>{{ job.employment_type }}</p>{% endif %}
+                <p>{{ job.job_description[:180] }}{% if job.job_description|length > 180 %}...{% endif %}</p>
+                <a class="button" href="{{ url_for('analyze_job_candidates', job_id=job.id) }}">Analyze Candidates</a>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <div class="result-card">
+            <p>No open job postings yet.</p>
+            <a class="button" href="{{ url_for('create_job_posting') }}">Create Your First Job Posting</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
