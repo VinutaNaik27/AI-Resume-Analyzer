@@ -853,20 +853,6 @@ Possible improvements include:
 
 ---
 
-# 📸 Screenshots
-
-Screenshots of the application can be added here.
-
-Example:
-
-```text
-screenshots/
-├── home.png
-├── applicant-dashboard.png
-├── recruiter-dashboard.png
-├── resume-analysis.png
-└── recruitment-results.png
-```
 
 Then they can be displayed in the README using:
 
@@ -880,25 +866,7 @@ Then they can be displayed in the README using:
 
 This project was developed as a **group project**.
 
-### Team
 
-* **Vinuta Naik**
-  GitHub: `VinutaNaik27`
-  LinkedIn: `vinuta_naik`
-
-* **[Teammate 2 Name]**
-  GitHub: `[GitHub Username]`
-  LinkedIn: `[LinkedIn Username]`
-
-* **[Teammate 3 Name]**
-  GitHub: `[GitHub Username]`
-  LinkedIn: `[LinkedIn Username]`
-
-* **[Teammate 4 Name]**
-  GitHub: `[GitHub Username]`
-  LinkedIn: `[LinkedIn Username]`
-
----
 
 # 🎓 Project Purpose
 
