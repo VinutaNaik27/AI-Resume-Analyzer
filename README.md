@@ -862,9 +862,6 @@ Then they can be displayed in the README using:
 
 ---
 
-# 👥 Team Members
-
-This project was developed as a **group project**.
 
 
 
